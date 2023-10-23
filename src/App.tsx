@@ -1,13 +1,19 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-
-import { HomePage } from './pages/HomePage';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  useEffect(() => {
+    fetch('https://api.airtable.com/v0/apprKEp9E3uOBnWVE/projects', {
+      headers: {
+        Authorization: 'Bearer patZfO3Gg5Mk6J8uh.0cdb6cdf7a370f8dfca688934bcb3507fd504f7fa6e5ddcd06fd15bbd555c3f8'
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, []);
   return (
-    <Routes>
-      <Route path='/' element={<HomePage />} />
-    </Routes>
+    <div>
+      <h1>Hello Dima</h1>
+    </div>
   );
 }
 
